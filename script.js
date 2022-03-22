@@ -30,3 +30,13 @@ const validWords = [
 
 const wordWinner = generateWord();
 // console.log(wordWinner);
+
+let correctLetters = ["Q", "U", "I", "C", "K"];
+
+const guess = document.getElementById("guess-1");
+const output = document.getElementsByClassName("square")[0];
+
+guess.addEventListener("input", function () {
+  guess.value = guess.value.toUpperCase();
+  output.textContent = guess.value;
+});
