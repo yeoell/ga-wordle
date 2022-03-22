@@ -1,5 +1,3 @@
-// console.log("hello");
-
 //select random word
 function randomWord(items) {
   const randomIndex = Math.floor(Math.random() * items.length);
@@ -28,15 +26,26 @@ const validWords = [
 
 // generateWord();
 
-const wordWinner = generateWord();
-// console.log(wordWinner);
+let correctWord = "QUICK";
+console.log(correctWord);
 
-let correctLetters = ["Q", "U", "I", "C", "K"];
+for (const letter of correctWord) {
+  console.log(letter);
+}
 
-const guess = document.getElementById("guess-1");
-const output = document.getElementsByClassName("square")[0];
+const guessInput = document.getElementById("guess-0");
+// console.log(guessInput);
+const guess = guessInput.value.split("");
+console.log(guess);
 
-guess.addEventListener("input", function () {
-  guess.value = guess.value.toUpperCase();
-  output.textContent = guess.value;
+//write a function to split out the input word to five boxes and then clear input boxx
+
+const row = document.getElementsByClassName("row")[0];
+
+guessInput.addEventListener("input", function () {
+  guessInput.value = guessInput.value.toUpperCase();
+  for (const index in guessInput.value) {
+    const square = row.querySelectorAll(".square")[index];
+    square.textContent = guessInput.value[index];
+  }
 });
