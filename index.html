@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>wordle project</title>
+    <script defer src="script.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="wrapper">
+      <div class="row" id="row-1">
+        <div id="output1" class="square" type="text"></div>
+        <div id="output2" class="square"></div>
+        <div id="output3" class="square"></div>
+        <div id="output4" class="square"></div>
+        <div id="output5" class="square"></div>
+      </div>
+      <div class="row" id="row-2">
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+      </div>
+      <div class="row" id="row-3">
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+      </div>
+      <div class="row" id="row-4">
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+      </div>
+      <div class="row" id="row-5">
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+      </div>
+      <div class="row" id="row-6">
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+      </div>
+    </div>
+    <div class="input-wrapper">
+      <input type="text" id="guess-1" class="guess" maxlength="1" />
+      <input type="text" id="guess-2" class="guess" maxlength="1" />
+      <input type="text" id="guess-3" class="guess" maxlength="1" />
+      <input type="text" id="guess-4" class="guess" maxlength="1" />
+      <input type="text" id="guess-5" class="guess" maxlength="1" />
+    </div>
+  </body>
+</html>
+
+<!-- word is generated on page open || done -->
+<!-- generated is used for comparison to game input -->
+<!-- words are typed into input -->
+<!-- five sep input boxes that output into five empty divs on enter -->
+<!-- correctly placed letters are in green (background) -->
+<!-- correct letters but not placed correctly are yellow (background) -->
+<!-- incorrect letters are grey -->
+<!-- a keyboard display highlights letters used and whether correct or not -->
+<!-- on correct guess, an alert displays with message -->
+<!-- after 6 incorrect guesses, an alert displays that shows the correct word -->
+<!-- if you can work out how, add a timer on each guess -->
+<!-- do you want to play again? yes will generate a new word and restart the game -->
