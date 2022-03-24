@@ -25,37 +25,26 @@ const validWords = [
 
 const correctWord = generateWord();
 console.log(correctWord);
-const correctLetters = correctWord.split("");
-console.log(correctLetters);
 
-//output guess input into squares (first row only)
 const guessInput = document.getElementById("guess");
-const box = document.getElementsByClassName("square")[0]; //go through all squares
 const button = document.getElementById("submit");
-let row = document.querySelectorAll(".row")[2]; //go through all boxes
-const rows = document.getElementsByClassName("master-row");
+let row = document.querySelectorAll(".row"); //go through all boxes
 let nextRow = 0;
+
+let box = document.getElementsByClassName("square"); //go through all squares
+let nextBox = 0;
 
 button.addEventListener("click", function () {
   //must compare against acceptable words before inputting, show error if not acceptable word
   let row = document.querySelectorAll(".row")[nextRow];
-  console.log(nextRow);
   nextRow = nextRow + 1;
-  console.log(nextRow);
 
   guessInput.value = guessInput.value.toUpperCase();
   for (const index in guessInput.value) {
     // console.log(guessInput.value[index]);
     const square = row.querySelectorAll(".square")[index];
     square.textContent = guessInput.value[index];
-    // console.log(square);
   }
-
-  // for (const row of rows) {
-  //   console.log(row);
-  // const nextRow = document.getElementsByClassName(".master-row .row")[row];
-  // console.log(nextRow);
-  // }
 
   //if the letter in the square matches the corrosponding letter of the correct word
   //the background colour should become green
@@ -63,15 +52,26 @@ button.addEventListener("click", function () {
   //if it's not there at all, background should be grey
   function letterMatch() {
     console.log(guessInput.value);
-    for (const letter of guessInput.value) {
-      console.log(letter);
-      if (guessInput.value === correctWord) {
-        console.log("success");
-        box.classList.add("correct");
-      } else {
-        console.log("try again");
-        box.classList.add("incorrect");
+
+    for (let index in correctWord) {
+      const correctLetters = correctWord[index];
+      // console.log(correctLetters);
+      const guessedLetters = guessInput.value[index];
+      // console.log(guessInput);
+      let row = document.querySelectorAll(".row")[nextBox];
+      // console.log(nextBox);
+      console.log(nextBox);
+      if (guessedLetters === correctLetters) {
+        console.log(box[nextBox]);
+        // console.log("success");
+        box[nextBox].classList.add("correct");
+      } else if (correctWord.includes(guessedLetters)) {
+        box[nextBox].classList.add("match");
+        // console.log("test");
+      } else if (guessedLetters != correctLetters) {
+        box[nextBox].classList.add("incorrect");
       }
+      nextBox = nextBox + 1;
     }
   }
   letterMatch();
