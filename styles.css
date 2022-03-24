@@ -1,22 +1,39 @@
-.square {
-  width: 50px;
-  height: 50px;
-  border: 1px solid #000;
-  margin: 10px;
+* {
+  box-sizing: border-box;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
 #wrapper {
   max-width: 300px;
 }
+
 .row {
-  display: inline-flex;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  /* display: inline-flex; */
 }
 
-.guess {
-  margin: 20px 5px;
+.square {
   width: 50px;
   height: 50px;
-  font-size: 20px;
+  border: 1px solid #000;
+  margin: 10px;
+  font-size: 25px;
+}
+
+.correct {
+  background-color: #64c95b;
+  color: #fff;
+}
+
+.match {
+  background-color: #c9b458;
+  color: #fff;
+}
+
+.incorrect {
+  background-color: #a6a6a6;
+  color: #fff;
 }
 
 .guessTest {
