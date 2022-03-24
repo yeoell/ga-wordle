@@ -25,16 +25,24 @@ const validWords = [
 
 const correctWord = generateWord();
 console.log(correctWord);
-const correctWordMatch = correctWord.split("");
-console.log(correctWordMatch);
+const correctLetters = correctWord.split("");
+console.log(correctLetters);
 
 //output guess input into squares (first row only)
 const guessInput = document.getElementById("guess");
 const box = document.getElementsByClassName("square")[0]; //go through all squares
 const button = document.getElementById("submit");
-const row = document.querySelectorAll(".row")[0]; //go through all boxes
+let row = document.querySelectorAll(".row")[2]; //go through all boxes
+const rows = document.getElementsByClassName("master-row");
+let nextRow = 0;
 
-button.addEventListener("focus", function () {
+button.addEventListener("click", function () {
+  //must compare against acceptable words before inputting, show error if not acceptable word
+  let row = document.querySelectorAll(".row")[nextRow];
+  console.log(nextRow);
+  nextRow = nextRow + 1;
+  console.log(nextRow);
+
   guessInput.value = guessInput.value.toUpperCase();
   for (const index in guessInput.value) {
     // console.log(guessInput.value[index]);
@@ -42,11 +50,22 @@ button.addEventListener("focus", function () {
     square.textContent = guessInput.value[index];
     // console.log(square);
   }
+
+  // for (const row of rows) {
+  //   console.log(row);
+  // const nextRow = document.getElementsByClassName(".master-row .row")[row];
+  // console.log(nextRow);
+  // }
+
+  //if the letter in the square matches the corrosponding letter of the correct word
+  //the background colour should become green
+  //if the letter is in the word but in the wrong spot, background should be yellow
+  //if it's not there at all, background should be grey
   function letterMatch() {
     console.log(guessInput.value);
     for (const letter of guessInput.value) {
       console.log(letter);
-      if (guessInput.value === correctWordMatch) {
+      if (guessInput.value === correctWord) {
         console.log("success");
         box.classList.add("correct");
       } else {
@@ -58,9 +77,3 @@ button.addEventListener("focus", function () {
   letterMatch();
   document.getElementById("guess").value = "";
 });
-
-//if the letter in the square matches the corrosponding letter of the correct word
-//the background colour should become green
-//if the letter is in the word, background should be yellow
-//if it's not there at all, background should be grey
-//if if if
