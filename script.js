@@ -2391,7 +2391,7 @@ button.addEventListener("click", function () {
     }
 
     if (correctLetterCount == 5) {
-      alert("you win!");
+      alert("You win!");
       // wasn't sure how to do this, took this from https://www.quackit.com/javascript/javascript_refresh_page.cfm
       function resetGame(refreshPage) {
         setTimeout("location.reload(true);", refreshPage);
