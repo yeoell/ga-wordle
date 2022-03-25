@@ -2327,21 +2327,28 @@ const validWords = [
   "ZESTY",
   "ZONAL",
 ];
-console.log(validWords.includes("HELLO"));
+// console.log(validWords.includes("HELLO"));
 
 const correctWord = generateWord();
 console.log(correctWord);
 
+//user inputs
 const guessInput = document.getElementById("guess");
 const button = document.getElementById("submit");
+
+//grid elements
 let row = document.querySelectorAll(".row"); //go through all boxes
 let nextRow = 0;
 
 let box = document.getElementsByClassName("square"); //go through all squares
 let nextBox = 0;
 
+//to win or lose
 let correctLetterCount = 0;
+let column = document.querySelectorAll(".first");
+let columnNumber = 0;
 
+//inputting guess
 button.addEventListener("click", function () {
   //compare against valid words before inputting
   if (validWords.includes(guessInput.value.toUpperCase())) {
@@ -2354,6 +2361,9 @@ button.addEventListener("click", function () {
   //changes rows
   let row = document.querySelectorAll(".row")[nextRow];
   nextRow = nextRow + 1;
+  let column = document.querySelectorAll(".first")[columnNumber];
+  columnNumber = columnNumber + 1;
+  console.log(columnNumber);
 
   guessInput.value = guessInput.value.toUpperCase();
   for (const index in guessInput.value) {
@@ -2372,7 +2382,6 @@ button.addEventListener("click", function () {
       if (guessedLetters === correctLetters) {
         correctLetterCount = correctLetterCount + 1;
         // console.log(correctLetterCount);
-
         box[nextBox].classList.add("correct");
       } else if (correctWord.includes(guessedLetters)) {
         box[nextBox].classList.add("match");
@@ -2383,16 +2392,28 @@ button.addEventListener("click", function () {
     }
 
     if (correctLetterCount == 5) {
-      // console.log("you win!");
       alert("you win!");
       // wasn't sure how to do this, took this from https://www.quackit.com/javascript/javascript_refresh_page.cfm
       function resetGame(refreshPage) {
         setTimeout("location.reload(true);", refreshPage);
       }
-      resetGame(500);
+      resetGame(750);
+    } else if (columnNumber == 6 && correctLetterCount != 5) {
+      console.log("loser");
+      alert(
+        "You win some, you lose some. And you lost this one.\nThe correct word is " + correctWord
+      );
+      function resetGame(refreshPage) {
+        setTimeout("location.reload(true);", refreshPage);
+      }
+      resetGame(750);
     }
   }
   letterMatch();
   document.getElementById("guess").value = "";
   correctLetterCount = 0;
 });
+
+//timer
+
+//
