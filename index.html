@@ -4,88 +4,71 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>YEOLDLE</title>
+    <title>YEODLE</title>
     <script defer src="script.js"></script>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div id="wrapper">
-      <div class="master-row">
+    <header>
+      <h1>YEODLE</h1>
+    </header>
+    <div class="board">
+      <div class="container">
         <div class="row" id="row-1">
-          <div class="square"></div>
+          <div class="first square"></div>
           <div class="square"></div>
           <div class="square"></div>
           <div class="square"></div>
           <div class="square"></div>
         </div>
-      </div>
-      <div class="master-row">
         <div class="row" id="row-2">
-          <div class="square"></div>
+          <div class="first square"></div>
           <div class="square"></div>
           <div class="square"></div>
           <div class="square"></div>
           <div class="square"></div>
         </div>
-      </div>
-      <div class="master-row">
         <div class="row" id="row-3">
-          <div class="square"></div>
+          <div class="first square"></div>
           <div class="square"></div>
           <div class="square"></div>
           <div class="square"></div>
           <div class="square"></div>
         </div>
-      </div>
-      <div class="master-row">
         <div class="row" id="row-4">
-          <div class="square"></div>
+          <div class="first square"></div>
           <div class="square"></div>
           <div class="square"></div>
           <div class="square"></div>
           <div class="square"></div>
         </div>
-      </div>
-      <div class="master-row">
         <div class="row" id="row-5">
-          <div class="square"></div>
+          <div class="first square"></div>
           <div class="square"></div>
           <div class="square"></div>
           <div class="square"></div>
           <div class="square"></div>
         </div>
-      </div>
-      <div class="master-row">
         <div class="row" id="row-6">
-          <div class="square"></div>
+          <div class="first square"></div>
           <div class="square"></div>
           <div class="square"></div>
           <div class="square"></div>
           <div class="square"></div>
         </div>
       </div>
-    </div>
-    <div class="input-wrapper">
-      <input
-        type="text"
-        id="guess"
-        class="guessTest"
-        maxlength="5"
-        style="text-transform: uppercase"
-      />
-      <button id="submit">GO</button>
+
+      <div class="wrapper">
+        <input
+          type="text"
+          id="guess"
+          class="guessTest"
+          maxlength="5"
+          style="text-transform: uppercase"
+        />
+        <button class="btn" id="submit">GO</button>
+        <div id="count"></div>
+      </div>
     </div>
   </body>
 </html>
-
-<!-- word is generated on page open || done -->
-<!-- generated is used for comparison to game input || done -->
-<!-- words are typed into input || done -->
-<!-- one input box outputs into five empty divs on enter || done -->
-<!-- correctly placed letters are in green (background) || done -->
-<!-- correct letters but not placed correctly are yellow (background) || done -->
-<!-- incorrect letters are grey || done -->
-<!-- a keyboard display highlights letters used and whether correct or not -->
-<!-- on correct guess, an alert displays with message || done -->
-<!-- after 6 incorrect guesses, an alert displays that shows the correct word -->
-<!-- do you want to play again? yes will generate a new word and restart the game || game refreshes when won -->

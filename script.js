@@ -1,3 +1,6 @@
+//start game
+alert("Are you ready?");
+
 //select random word
 function randomWord(items) {
   const randomIndex = Math.floor(Math.random() * items.length);
@@ -2414,6 +2417,19 @@ button.addEventListener("click", function () {
   correctLetterCount = 0;
 });
 
-//timer
+// timer;
+// https://stackoverflow.com/questions/44314897/javascript-timer-for-a-quiz
 
-//
+let count = 120;
+const interval = setInterval(function () {
+  document.getElementById("count").innerHTML = count;
+  count--;
+  if (count === 0) {
+    clearInterval(interval);
+    alert("You're out of time!\nThe correct word is " + correctWord);
+    function resetGame(refreshPage) {
+      setTimeout("location.reload(true);", refreshPage);
+    }
+    resetGame(500);
+  }
+}, 500);
