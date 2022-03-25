@@ -2330,7 +2330,6 @@ const validWords = [
   "ZESTY",
   "ZONAL",
 ];
-// console.log(validWords.includes("HELLO"));
 
 const correctWord = generateWord();
 console.log(correctWord);
@@ -2366,7 +2365,6 @@ button.addEventListener("click", function () {
   nextRow = nextRow + 1;
   let column = document.querySelectorAll(".first")[columnNumber];
   columnNumber = columnNumber + 1;
-  console.log(columnNumber);
 
   guessInput.value = guessInput.value.toUpperCase();
   for (const index in guessInput.value) {
@@ -2376,7 +2374,6 @@ button.addEventListener("click", function () {
 
   //colour match
   function letterMatch() {
-    // console.log(guessInput.value);
     for (let index in correctWord) {
       const correctLetters = correctWord[index];
       const guessedLetters = guessInput.value[index];
@@ -2384,7 +2381,6 @@ button.addEventListener("click", function () {
 
       if (guessedLetters === correctLetters) {
         correctLetterCount = correctLetterCount + 1;
-        // console.log(correctLetterCount);
         box[nextBox].classList.add("correct");
       } else if (correctWord.includes(guessedLetters)) {
         box[nextBox].classList.add("match");
@@ -2402,7 +2398,6 @@ button.addEventListener("click", function () {
       }
       resetGame(750);
     } else if (columnNumber == 6 && correctLetterCount != 5) {
-      console.log("loser");
       alert(
         "You win some, you lose some. And you lost this one.\nThe correct word is " + correctWord
       );
