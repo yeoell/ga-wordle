@@ -2413,18 +2413,33 @@ button.addEventListener("click", function () {
 });
 
 // timer;
-// https://stackoverflow.com/questions/44314897/javascript-timer-for-a-quiz
+//https://stackoverflow.com/questions/20618355/how-to-write-a-countdown-timer-in-javascript
+function startTimer(duration, display) {
+  let timer = duration,
+    minutes,
+    seconds;
+  setInterval(function () {
+    minutes = parseInt(timer / 60, 10);
+    seconds = parseInt(timer % 60, 10);
 
-let count = 120;
-const interval = setInterval(function () {
-  document.getElementById("count").innerHTML = count;
-  count--;
-  if (count === 0) {
-    clearInterval(interval);
-    alert("You're out of time!\nThe correct word is " + correctWord);
-    function resetGame(refreshPage) {
-      setTimeout("location.reload(true);", refreshPage);
+    minutes = minutes < 10 ? "0" + minutes : minutes;
+    seconds = seconds < 10 ? "0" + seconds : seconds;
+
+    display.textContent = minutes + ":" + seconds;
+
+    if (--timer < 0) {
+      timer = duration;
+      alert("You're out of time!\nThe correct word is " + correctWord);
+      function resetGame(refreshPage) {
+        setTimeout("location.reload(true);", refreshPage);
+      }
+      resetGame(500);
     }
-    resetGame(500);
-  }
-}, 500);
+  }, 500);
+}
+
+window.onload = function () {
+  var threeMinutes = 60 * 3,
+    display = document.querySelector("#count");
+  startTimer(threeMinutes, display);
+};
