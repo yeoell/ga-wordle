@@ -2336,6 +2336,7 @@ console.log(correctWord);
 
 //user inputs
 const guessInput = document.getElementById("guess");
+const guessEnter = document.getElementById("guess");
 const button = document.getElementById("submit");
 
 //grid elements
@@ -2351,7 +2352,7 @@ let column = document.querySelectorAll(".first");
 let columnNumber = 0;
 
 //inputting guess
-button.addEventListener("click", function () {
+guessEnter.addEventListener("change", function () {
   //compare against valid words before inputting
   if (validWords.includes(guessInput.value.toUpperCase())) {
   } else {
@@ -2405,7 +2406,7 @@ button.addEventListener("click", function () {
       function resetGame(refreshPage) {
         setTimeout("location.reload(true);", refreshPage);
       }
-      resetGame(2000);
+      resetGame(3000);
     }
   }
   letterMatch();
