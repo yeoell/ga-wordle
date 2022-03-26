@@ -2372,7 +2372,7 @@ button.addEventListener("click", function () {
     square.textContent = guessInput.value[index];
   }
 
-  //colour match
+  //letter evaluation
   function letterMatch() {
     for (let index in correctWord) {
       const correctLetters = correctWord[index];
@@ -2392,7 +2392,7 @@ button.addEventListener("click", function () {
 
     if (correctLetterCount == 5) {
       alert("You win!");
-      // wasn't sure how to do this, took this from https://www.quackit.com/javascript/javascript_refresh_page.cfm
+      // adapted the reset function from https://www.quackit.com/javascript/javascript_refresh_page.cfm
       function resetGame(refreshPage) {
         setTimeout("location.reload(true);", refreshPage);
       }
@@ -2412,7 +2412,7 @@ button.addEventListener("click", function () {
   correctLetterCount = 0;
 });
 
-// timer;
+//timer;
 //https://stackoverflow.com/questions/20618355/how-to-write-a-countdown-timer-in-javascript
 function startTimer(duration, display) {
   let timer = duration,
@@ -2435,7 +2435,7 @@ function startTimer(duration, display) {
       }
       resetGame(500);
     }
-  }, 500);
+  }, 1000);
 }
 
 window.onload = function () {
