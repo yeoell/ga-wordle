@@ -2391,20 +2391,21 @@ button.addEventListener("click", function () {
     }
 
     if (correctLetterCount == 5) {
-      alert("You win!");
+      const outcomeMessage = document.getElementById("outcome");
+      outcomeMessage.textContent = "You win!";
       // adapted the reset function from https://www.quackit.com/javascript/javascript_refresh_page.cfm
       function resetGame(refreshPage) {
         setTimeout("location.reload(true);", refreshPage);
       }
-      resetGame(750);
+      resetGame(2000);
     } else if (columnNumber == 6 && correctLetterCount != 5) {
-      alert(
-        "You win some, you lose some. And you lost this one.\nThe correct word is " + correctWord
-      );
+      const outcomeMessage = document.getElementById("outcome");
+      outcomeMessage.textContent =
+        "You win some, you lose some. And you lost this one. The correct word is " + correctWord;
       function resetGame(refreshPage) {
         setTimeout("location.reload(true);", refreshPage);
       }
-      resetGame(750);
+      resetGame(2000);
     }
   }
   letterMatch();
@@ -2429,17 +2430,19 @@ function startTimer(duration, display) {
 
     if (--timer < 0) {
       timer = duration;
-      alert("You're out of time!\nThe correct word is " + correctWord);
+      const outcomeMessage = document.getElementById("outcome");
+      outcomeMessage.textContent = "You're out of time! The correct word is " + correctWord;
+      // alert("You're out of time!\nThe correct word is " + correctWord);
       function resetGame(refreshPage) {
         setTimeout("location.reload(true);", refreshPage);
       }
-      resetGame(500);
+      resetGame(2000);
     }
   }, 1000);
 }
 
 window.onload = function () {
-  var threeMinutes = 60 * 3,
+  const threeMinutes = 60 * 3,
     display = document.querySelector("#count");
   startTimer(threeMinutes, display);
 };
